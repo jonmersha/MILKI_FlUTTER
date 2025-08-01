@@ -25,7 +25,11 @@ class ApiService {
     }
   }
 
-  Future<bool> postData(int index, List<Map<String, dynamic>> payload) async {
+  Future<bool> postData(
+    int index,
+    List<Map<String, dynamic>> payload,
+    Map<String, Object> data,
+  ) async {
     final response = await http.post(
       Uri.parse('${ApiConstants.postData}/$index'),
       headers: _headers,

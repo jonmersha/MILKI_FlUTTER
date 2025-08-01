@@ -1,20 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:milkifoodcomplex/core/services/api_service.dart';
 
-class StockValuePage extends StatelessWidget {
+class StockByStorePage extends StatelessWidget {
   final ApiService _apiService = ApiService();
+
+  StockByStorePage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Stock Value Summary')),
+      appBar: AppBar(title: Text('Stock by Store')),
       body: FutureBuilder<List<dynamic>>(
-        future: _apiService.getData(22),
+        future: _apiService.getData(20),
         builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.waiting)
+          if (snapshot.connectionState == ConnectionState.waiting) {
             return Center(child: CircularProgressIndicator());
-          if (snapshot.hasError)
+          }
+          if (snapshot.hasError) {
             return Center(child: Text('Error: ${snapshot.error}'));
+          }
 
           final stocks = snapshot.data!;
           return ListView.builder(
@@ -22,9 +26,11 @@ class StockValuePage extends StatelessWidget {
             itemBuilder: (context, index) {
               final stock = stocks[index];
               return ListTile(
-                title: Text('${stock["product_name"]}'),
+                title: Text(
+                  '${stock["product_name"]} (${stock["store_name"]})',
+                ),
                 subtitle: Text(
-                  'Qty: ${stock["quantity"]} • Avg Price: ${stock["avg_unit_price"]} • Value: ${stock["stock_value"]}',
+                  'Qty: ${stock["quantity"]} • Updated: ${stock["last_updated"]}',
                 ),
               );
             },

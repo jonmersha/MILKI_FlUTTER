@@ -27,7 +27,7 @@ class _FactoryCreatePageState extends State<FactoryCreatePage> {
         },
       ];
 
-      bool success = await _apiService.postData(3, payload);
+      bool success = await _apiService.postData(3, payload, {});
 
       setState(() => _isSubmitting = false);
 

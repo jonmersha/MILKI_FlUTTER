@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:milkifoodcomplex/features/Inventoy/pages/inventory_view.dart';
-import 'package:milkifoodcomplex/features/factory/factory_list_page.dart';
-import 'package:milkifoodcomplex/features/order/purchase_orders_page.dart';
-import 'package:milkifoodcomplex/features/order/sales_orders_page.dart';
-import 'package:milkifoodcomplex/features/stock/pages/stock_by_store_page.dart';
-import 'package:milkifoodcomplex/features/stock/pages/stock_value_page.dart';
-import 'package:milkifoodcomplex/features/stock/pages/total_stock_page.dart';
-
-// Import the separate DashboardOverviewPage
-import 'features/home.dart';
+import 'package:milkifoodcomplex/pages/Inventoy/pages/inventory_view.dart';
+import 'package:milkifoodcomplex/pages/factory/factory_list_page.dart';
+import 'package:milkifoodcomplex/pages/home.dart';
+import 'package:milkifoodcomplex/pages/order/purchase_orders_page.dart';
+import 'package:milkifoodcomplex/pages/order/sales_orders_page.dart';
+import 'package:milkifoodcomplex/pages/stock/pages/stock_by_store_page.dart';
+import 'package:milkifoodcomplex/pages/stock/pages/stock_value_page.dart';
+import 'package:milkifoodcomplex/pages/stock/pages/total_stock_page.dart';
 
 class DashboardHome extends StatefulWidget {
   const DashboardHome({super.key});
@@ -40,7 +38,7 @@ class _DashboardHomeState extends State<DashboardHome> {
       icon: Icons.shop,
       label: 'Inventory',
       subMenus: [
-        SubMenu(label: 'View', widget: InventoryPage()),
+        SubMenu(label: 'View', widget: InventoryGroupedPage()),
         SubMenu(label: 'Add New', widget: TotalStockPage()),
         SubMenu(label: 'Tranfers', widget: StockValuePage()),
         SubMenu(label: 'Adjustments', widget: StockValuePage()),
