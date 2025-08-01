@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:milkifoodcomplex/pages/order/purchase_orders_page.dart';
+import 'package:milkifoodcomplex/features/order/purchase_orders_page.dart';
 
 class SidebarMenu extends StatefulWidget {
   const SidebarMenu({super.key});

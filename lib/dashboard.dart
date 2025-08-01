@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:milkifoodcomplex/pages/factory/factory_list_page.dart';
-import 'package:milkifoodcomplex/pages/order/purchase_orders_page.dart';
-import 'package:milkifoodcomplex/pages/order/sales_orders_page.dart';
-import 'package:milkifoodcomplex/pages/stock/pages/stock_by_store_page.dart';
-import 'package:milkifoodcomplex/pages/stock/pages/stock_value_page.dart';
-import 'package:milkifoodcomplex/pages/stock/pages/total_stock_page.dart';
+import 'package:milkifoodcomplex/features/Inventoy/pages/inventory_view.dart';
+import 'package:milkifoodcomplex/features/factory/factory_list_page.dart';
+import 'package:milkifoodcomplex/features/order/purchase_orders_page.dart';
+import 'package:milkifoodcomplex/features/order/sales_orders_page.dart';
+import 'package:milkifoodcomplex/features/stock/pages/stock_by_store_page.dart';
+import 'package:milkifoodcomplex/features/stock/pages/stock_value_page.dart';
+import 'package:milkifoodcomplex/features/stock/pages/total_stock_page.dart';
 
 // Import the separate DashboardOverviewPage
-import 'pages/home.dart';
+import 'features/home.dart';
 
 class DashboardHome extends StatefulWidget {
   const DashboardHome({super.key});
@@ -33,6 +34,17 @@ class _DashboardHomeState extends State<DashboardHome> {
           label: 'Stats',
           widget: const Center(child: Text('Dashboard Stats')),
         ),
+      ],
+    ),
+    MenuItem(
+      icon: Icons.shop,
+      label: 'Inventory',
+      subMenus: [
+        SubMenu(label: 'View', widget: InventoryPage()),
+        SubMenu(label: 'Add New', widget: TotalStockPage()),
+        SubMenu(label: 'Tranfers', widget: StockValuePage()),
+        SubMenu(label: 'Adjustments', widget: StockValuePage()),
+        SubMenu(label: 'Reports', widget: StockValuePage()),
       ],
     ),
     MenuItem(
@@ -149,7 +161,7 @@ class _DashboardHomeState extends State<DashboardHome> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 21, 29, 51),
+        backgroundColor: const Color.fromARGB(255, 13, 64, 204),
         actions: [
           IconButton(
             icon: const Icon(Icons.refresh),
